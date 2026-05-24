@@ -45,9 +45,9 @@ class VolatilityDynamics(nn.Module):
         return sigma, h_n
 
 
-class LSG_VAE(nn.Module):
+class VolDy_VAE(nn.Module):
     """
-    Location-Scale Gaussian VAE (LSG-VAE)
+    Location-Scale Gaussian VAE (VolDy-VAE)
 
     A variational autoencoder for probabilistic time series forecasting
     with temporally coherent uncertainty modeling.

@@ -1,5 +1,5 @@
 export CUDA_VISIBLE_DEVICES=5
-MODEL=LSG_VAE
+MODEL=VolDy_VAE
 
 DATASET=weather_ltsf
 # ['etth1', 'etth2','ettm1','ettm2','traffic_ltsf', 'electricity_ltsf', 'exchange_ltsf', 'illness_ltsf', 'weather_ltsf']

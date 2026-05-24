@@ -14,7 +14,7 @@ trainer:
   gradient_clip_val: 0.5
 model:
   forecaster:
-    class_path: probts.model.forecaster.prob_forecaster.LSG_VAE_Forecaster.LSG_VAEModel
+    class_path: probts.model.forecaster.prob_forecaster.VolDy_VAE_Forecaster.VolDy_VAEModel
     init_args:
       d_model: 128
       d_ff: 256

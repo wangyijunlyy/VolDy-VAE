@@ -1,5 +1,5 @@
 """
-* @description: LSG_VAE wrapper for ProbTS Forecaster
+* @description: VolDy_VAE wrapper for ProbTS Forecaster
 """
 
 import torch
@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from einops import rearrange
 
 from probts.model.forecaster.forecaster import Forecaster
-from probts.model.nn.prob.k2VAE.LSG_VAE_nn import LSG_VAE
+from probts.model.nn.prob.k2VAE.VolDy_VAE_nn import VolDy_VAE
 
 
 class ConvertedParams:
@@ -16,7 +16,7 @@ class ConvertedParams:
             setattr(self, key, value)
 
 
-class LSG_VAEModel(Forecaster):
+class VolDy_VAEModel(Forecaster):
     def __init__(
         self,
         d_model,
@@ -39,7 +39,7 @@ class LSG_VAEModel(Forecaster):
         **kwargs,
     ):
         """
-        LSG_VAE wrapper constructor.
+        VolDy_VAE wrapper constructor.
 
         Args:
             vol_hidden_dim: Hidden dimension for the GRU-based volatility dynamics module.
@@ -77,7 +77,7 @@ class LSG_VAEModel(Forecaster):
         self.weight_beta = weight_beta
 
         # ---- Instantiate Model ----
-        self.model = LSG_VAE(config)
+        self.model = VolDy_VAE(config)
 
     def forward(self, input: torch.Tensor):
         """
@@ -131,7 +131,7 @@ class LSG_VAEModel(Forecaster):
 
     def forecast(self, batch_data, num_samples=None):
         """
-        Forecast future steps using LSG_VAE.
+        Forecast future steps using VolDy_VAE.
 
         If num_samples is provided, performs generative forecasting
         (sampling both latent and observation noise via Volatility Dynamics).
